@@ -50,7 +50,7 @@ function addGeoJsonLayer(url, colorProperty, isFacility) {
                     if (isFacility) {
                         return L.marker(latlng, {
                             icon: L.icon({
-                                iconUrl: 'https://png.pngtree.com/png-vector/20190721/ourmid/pngtree-factory-icon-for-your-project-png-image_1554999.jpg',
+                                iconUrl: 'https://cdn.pixabay.com/photo/2014/04/03/10/33/factory-310848_1280.png',
                                 iconSize: [16, 16],
                                 iconAnchor: [16, 16],
                                 popupAnchor: [0, -16]
