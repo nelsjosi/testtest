@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,18 +14,34 @@
         }
 
         #map {
-            height: 100vh;
+            height: 600px;
+        }
+
+        .info {
+            padding: 6px 8px;
+            font: 14px/16px Arial, Helvetica, sans-serif;
+            background: white;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+        }
+
+        .info h4 {
+            margin: 0 0 5px;
+            color: #777;
         }
 
         .legend {
+            line-height: 18px;
+            color: #555;
             background-color: white;
             border: 1px solid #ccc;
             padding: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             border-radius: 5px;
             position: absolute;
-            bottom: 10px;
-            right: 10px;
+            bottom: 20px;
+            right: 20px;
         }
 
         .legend i {
@@ -35,27 +52,44 @@
             opacity: 0.7;
         }
 
-        .search-container {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            z-index: 1000;
-            background: white;
-            padding: 5px;
-            border-radius: 5px;
+        /* Ethnicity colors */
+        .no-data {
+            background-color: rgb(169, 169, 169); /* Gray for no data */
         }
+
+        .majority-black {
+            background-color: rgb(255, 215, 0); /* Gold for majority black */
+        }
+
+        .majority-hispanic {
+            background-color: rgb(255, 99, 71); /* Tomato red for majority Hispanic */
+        }
+
+        .majority-white {
+            background-color: rgb(50, 205, 50); /* Lime green for majority white */
+        }
+        /* Add more colors as needed */
     </style>
 </head>
+
 <body>
     <h1 style="text-align: center; margin: 10px;">Hazardous Waste Facilities in Detroit, Michigan in Relation to Ethnicity</h1>
+    <div id="map"></div>
+    <div class="legend">
+        <div class="no-data"><i style="background: rgb(169,169,169)"></i>No Data</div>
+        <div class="majority-black"><i style="background: rgb(255,215,0)"></i>Majority Black</div>
+        <div class="majority-hispanic"><i style="background: rgb(255,99,71)"></i>Majority Hispanic</div>
+        <div class="majority-white"><i style="background: rgb(50,205,50)"></i>Majority White</div>
+        <!-- Add more divs for additional colors -->
+    </div>
     <div class="search-container">
         <input type="text" id="search-input" placeholder="Enter address">
         <button onclick="searchLocation()">Search</button>
     </div>
-    <div id="map"></div>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
     <script src="detroit.js"></script>
 </body>
+
 </html>
