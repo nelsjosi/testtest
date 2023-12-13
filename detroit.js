@@ -54,10 +54,6 @@ var getColorForColorBlind = function (feature) {
     }
 };
 
-
-
-
-
 var selectedLayer = null;
 
 // Function to add GeoJSON layer
@@ -154,8 +150,6 @@ legend.onAdd = function (map) {
 
 legend.addTo(map);
 
-legend.addTo(map);
-
 // Add Search Control to the map
 var searchControl = L.control({ position: 'bottomleft' });
 
@@ -169,7 +163,6 @@ searchControl.onAdd = function (map) {
 searchControl.addTo(map);
 
 // Search functionality
-// Search functionality
 function searchLocation() {
     var searchInput = document.getElementById('search-input').value;
     var searchUrl = 'https://nominatim.openstreetmap.org/search?format=json&q=' + searchInput;
@@ -179,7 +172,7 @@ function searchLocation() {
         .then(data => {
             if (data && data.length > 0) {
                 var latlng = [data[0].lat, data[0].lon];
-                
+
                 // Set the zoom level and pan to the searched location
                 map.setView(latlng, 14);
 
@@ -193,7 +186,6 @@ function searchLocation() {
         })
         .catch(error => console.error('Error searching location:', error));
 }
-
 
 // Function to reset highlight
 function resetHighlight(layer) {
